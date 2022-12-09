@@ -221,7 +221,7 @@ class RegexBinaryOperatorExpression(BinaryOperatorExpression):
     @staticmethod
     def __evaluate__(x_obj, y_obj):
         """Perform a regex match."""
-        return True if re.match(y_obj, x_obj) else False
+        return True if re.match(y_obj.replace("\\\\", "\\"), x_obj) else False
 
 
 class UnaryOperatorExpression(OperatorExpression):
